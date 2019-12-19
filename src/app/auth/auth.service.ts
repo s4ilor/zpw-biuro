@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuthModule, AngularFireAuth } from "@angular/fire/auth"; import { User } from 'firebase';
+import { AngularFireAuthModule, AngularFireAuth } from '@angular/fire/auth'; import { User } from 'firebase';
 import { Observable } from 'rxjs/index';
-export interface Credentials { email: string;
+export interface registerCredentials {
+  email: string;
+  firstname: string;
+  surname: string;
+  address: string;
+  password: string;
+}
+export interface loginCredentials {
+  email: string;
   password: string;
 }
 @Injectable({providedIn: 'root'}) export class AuthService {
@@ -10,10 +18,10 @@ export interface Credentials { email: string;
   get user(): User | null {
     return this.fireAuth.auth.currentUser;
   }
-  login({email, password}: Credentials) {
+  login({email, password}: loginCredentials) {
     return this.fireAuth.auth.signInWithEmailAndPassword(email, password);
   }
-  register({email, password}: Credentials) {
+  register({email, firstname, surname, address, password}: registerCredentials) {
     return this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
   logout() {

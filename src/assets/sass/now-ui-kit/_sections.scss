@@ -70,7 +70,7 @@
     }
 
     &.page-header-small{
-        min-height: 60vh;
+        height: 60vh;
         max-height: 440px;
     }
 
@@ -358,9 +358,9 @@
     //inputs
     @include input-coloured-bg($opacity-5, $white-color, $white-color, $transparent-bg, $opacity-1, $opacity-2);
 
-    .input-group-text,
-    .form-group.form-group-no-border .input-group-text,
-    .input-group.form-group-no-border .input-group-text{
+    .input-group-addon,
+    .form-group.form-group-no-border .input-group-addon,
+    .input-group.form-group-no-border .input-group-addon{
         color: $opacity-8;
     }
 

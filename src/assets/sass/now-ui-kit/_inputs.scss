@@ -20,8 +20,8 @@
         outline: 0 !important;
         color: $black-color;
 
-        & + .input-group-text,
-        & ~ .input-group-text{
+        & + .input-group-addon,
+        & ~ .input-group-addon{
             border: 1px solid $primary-color;
             border-left: none;
             background-color: $transparent-bg;
@@ -73,9 +73,9 @@
         border-bottom-color: transparent;
     }
 
-    // & + .input-group-text{
-    //     background-color: $white-bg;
-    // }
+    & + .input-group-addon{
+        background-color: $white-bg;
+    }
 }
 
 .has-success,
@@ -112,7 +112,7 @@
 .form-group.form-group-no-border,
 .input-group.form-group-no-border{
     .form-control,
-    .form-control + .input-group-text{
+    .form-control + .input-group-addon{
         background-color: $opacity-gray-3;
         border: medium none;
         &:focus,
@@ -125,16 +125,15 @@
 
     .form-control{
         &:focus{
-            & + .input-group-text{
+            & + .input-group-addon{
                 background-color: $opacity-gray-5;
             }
         }
     }
-    .input-group-prepend{
-      .input-group-text{
-          background-color: $opacity-gray-3;
-          border: none;
-      }
+
+    .input-group-addon{
+        background-color: $opacity-gray-3;
+        border: none;
     }
 }
 
@@ -149,7 +148,7 @@
     }
 }
 
-.input-group-text {
+.input-group-addon {
     background-color: $white-bg;
     border: 1px solid $light-gray;
     border-radius: $btn-round-radius;
@@ -181,13 +180,13 @@
 }
 
 .input-group-focus{
-    .input-group-text{
+    .input-group-addon{
         background-color: $white-bg;
         border-color: $primary-color;
     }
 
     &.form-group-no-border{
-        .input-group-text{
+        .input-group-addon{
             background-color: $opacity-gray-5;
         }
     }
@@ -198,46 +197,18 @@
     margin-bottom: 10px;
 }
 .input-group[disabled]{
-    .input-group-text{
+    .input-group-addon{
         background-color: $light-gray;
     }
 }
-.input-group {
-  .input-group-prepend{
-    margin-right: 0;
-
-    .input-group-text {
-      border-left: 1px solid #E3E3E3 !important;
-    }
-  }
-  .input-group-append .input-group-text {
-    border-right: 1px solid #E3E3E3 !important;
-    padding: 10px 18px 10px 0;
-  }
-
-  &.input-group-focus {
-    .input-group-prepend .input-group-text {
-      border-left: 1px solid #f96332 !important;
-    }
-    .input-group-append .input-group-text {
-      border-right: 1px solid #f96332 !important;
-    }
-  }
-  &.form-group-no-border{
-    .input-group-prepend .input-group-text{
-      border-left: transparent !important;
-    }
-  }
-}
-
 .input-group .form-control:first-child,
-.input-group-text:first-child,
+.input-group-addon:first-child,
 .input-group-btn:first-child > .dropdown-toggle,
 .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
     border-right: 0 none;
 }
 .input-group .form-control:last-child,
-.input-group-text:last-child,
+.input-group-addon:last-child,
 .input-group-btn:last-child > .dropdown-toggle,
 .input-group-btn:first-child > .btn:not(:first-child) {
     border-left: 0 none;

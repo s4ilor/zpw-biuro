@@ -26,9 +26,13 @@
             "styles": [
               "src/styles.scss",
               "src/assets/sass/now-ui-kit.scss",
-              "src/assets/css/demo.css"
+              "src/assets/css/demo.css",
+              "src/assets/css/now-ui-kit.css"
+
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/rellax/rellax.min.js"
             ]
           },

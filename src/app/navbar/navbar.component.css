@@ -1,3 +1,8 @@
-
+.navbar-transparent {
+  background-color: transparent !important;
+  box-shadow: none;
+  color: #FFFFFF;
+  padding-top: 20px;
+}
 
 /*# sourceMappingURL=navbar.component.css.map */

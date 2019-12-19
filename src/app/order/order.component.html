@@ -1,0 +1,12 @@
+<section id='order' class='items p-5'>
+  <div class="container">
+    <div class="alert alert-info text-center">
+      <strong [ngClass]="[countItemsInOrder() > 10 ? 'text-success' : 'text-danger' ]">You have {{countItemsInOrder()}} elements in your shopping cart</strong>
+    </div>
+    <div class="row mb-4">
+      <div *ngFor="let item of getUniqueItemsInOrder()" class="col-md-4 mb-3 mb-md-0 mt-4">
+        <app-order-item [item]="item" (removeItemEmitter)="removeItemFromOrder($event)"></app-order-item>
+      </div>
+    </div>
+  </div>
+</section>

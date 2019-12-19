@@ -33,14 +33,14 @@
 @mixin input-lg-padding($padding-vertical, $padding-horizontal) {
     .form-group.form-group-no-border.input-lg,
     .input-group.form-group-no-border.input-lg{
-        .input-group-text{
+        .input-group-addon{
             padding: $padding-vertical 0 $padding-vertical $padding-horizontal;
         }
 
         .form-control{
             padding: $padding-vertical $padding-horizontal;
 
-            & + .input-group-text{
+            & + .input-group-addon{
                 padding: $padding-vertical $padding-horizontal $padding-vertical 0;
             }
         }
@@ -51,12 +51,12 @@
         .form-control{
             padding: $padding-vertical - 1 $padding-horizontal - 1;
 
-            & + .input-group-text{
+            & + .input-group-addon{
                 padding: $padding-vertical - 1 $padding-horizontal - 1 $padding-vertical - 1 0;
             }
         }
 
-        .input-group-text{
+        .input-group-addon{
             padding: $padding-vertical - 1 0 $padding-vertical $padding-horizontal - 1;
 
             & + .form-control{
@@ -74,12 +74,12 @@
         .form-control{
             padding: $padding-vertical $padding-horizontal;
 
-            & + .input-group-text{
+            & + .input-group-addon{
                 padding: $padding-vertical $padding-horizontal $padding-vertical 0;
             }
         }
 
-        .input-group-text{
+        .input-group-addon{
             padding: $padding-vertical 0 $padding-vertical $padding-horizontal;
         }
     }
@@ -89,12 +89,12 @@
         .form-control{
             padding: $padding-vertical - 1 $padding-horizontal - 1 $padding-vertical - 1 $padding-horizontal - 1;
 
-            & + .input-group-text{
+            & + .input-group-addon{
                 padding: $padding-vertical - 1 $padding-horizontal - 1 $padding-vertical - 1 0;
             }
         }
 
-        .input-group-text{
+        .input-group-addon{
             padding: $padding-vertical - 1 0 $padding-vertical - 1 $padding-horizontal - 1;
 
             & + .form-control,
@@ -141,14 +141,14 @@
         }
     }
 
-    .input-group-text{
+    .input-group-addon{
         background-color: $color4;
         border-color: $color1;
         color: $color2;
     }
 
     .input-group-focus{
-        .input-group-text{
+        .input-group-addon{
             background-color: $color4;
             border-color: $color3;
             color: $color3;
@@ -169,7 +169,7 @@
             }
         }
 
-        .form-control + .input-group-text{
+        .form-control + .input-group-addon{
             background-color: $color5;
 
             &:focus,
@@ -182,21 +182,21 @@
 
         .form-control{
             &:focus{
-                & + .input-group-text{
+                & + .input-group-addon{
                     background-color: $color6;
                     color: $color3;
                 }
             }
         }
 
-        .input-group-text{
+        .input-group-addon{
             background-color: $color5;
             border: none;
             color: $color2;
         }
 
         &.input-group-focus{
-            .input-group-text{
+            .input-group-addon{
                 background-color: $color6;
                 color: $color3;
             }
