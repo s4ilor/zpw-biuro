@@ -1,0 +1,26 @@
+<div class="card py-4 h-100" [ngClass]="{'bg-light': special, 'border-danger': howManyLeft()<=3 }">
+  <div class="card-body text-center">
+    <i class="fa fa-plane text-primary mb-2"></i>
+    <h4 class="text-uppercase m-0">{{item.name}}</h4>
+    <div class="small text-black-50">{{item.destination | uppercase}} {{item.price}}zł</div>
+    <div *ngIf="howManyLeft(); else noItemsLeftBlock" class="small text-black-50">{{howManyLeft()}} places left</div>
+    <ng-template #noItemsLeftBlock><div class="small text-black-50">No more places!</div></ng-template>
+    <hr class="my-4">
+    <div class="row justify-content-center align-items-center">
+       <button *ngIf="!isAdmin()" (click)="removeItemFromShoppingCart()" type="button" [disabled]="howManyLeft()==item.limit" class="col-2 btn btn-outline-primary">-</button>
+       <div class="col-3 col-md-4"><img class="img-thumbnail img-fluid rounded-circle" src="../../assets{{item.imageSrc}}" /></div>
+       <button *ngIf="!isAdmin()" (click)="addItemToShoppingCart()" type="button" [disabled]="!howManyLeft()" class="col-2 btn btn-outline-primary">+</button>
+    </div>
+  </div>
+
+  <div class="row card-footer bg-transparent align-items-center">
+
+
+    <div *ngFor="let element of [].constructor(4); let i = index" class="col-2">
+     <i *ngIf="!isAdmin()" (click)="rateItem(i+1)" class="fa" [ngClass]="{'fa-star text-warning': item.rating > i, 'fa-star-o': item.rating <= i}" ></i>
+    </div>
+
+    <i *ngIf="isAdmin()" (click)="removeItem()" class="col-2 fa fa-trash text-alert"></i>
+    <i routerLink="/item/{{item.id}}" class="col-2 fa fa-info-circle text-alert"></i>
+  </div>
+</div>
