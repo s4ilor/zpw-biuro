@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from '../order-service/order-service.component';
+import { OrderService} from './order.service';
 import { Item } from '../models/item';
 
 @Component({
@@ -9,16 +9,16 @@ import { Item } from '../models/item';
 })
 export class OrderComponent implements OnInit {
 
-  constructor(private OrderService: OrderService) {}
+  constructor(private orderService: OrderService) {}
 
   ngOnInit() {
   }
 
   getUniqueItemsInOrder(): Set<Item> {
-    return new Set(this.OrderService.getItemsInOrder());
+    return new Set(this.orderService.getItemsInOrder());
   }
 
   countItemsInOrder(): number {
-    return this.OrderService.countItemsInOrder();
+    return this.orderService.countItemsInOrder();
   }
 }

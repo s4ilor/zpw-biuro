@@ -1,12 +1,12 @@
-<h4 class='text-center col-12' i18n>New offer</h4>
+<h4 class='text-center col-12' i18n>Nowa oferta</h4>
 <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
-  <input class="form-control" type="text" placeholder="Name" formControlName="name">
-  <input class="form-control" placeholder="Destination" type="text" formControlName="destination">
-  <input class="form-control" placeholder="Start date" type="text" formControlName="startDate">
-  <input class="form-control" placeholder="End date" type="text" formControlName="endDate">
-  <input class="form-control" placeholder="Price" type="text" formControlName="price">
-  <input class="form-control" placeholder="Limit" type="text" formControlName="limit">
-  <input class="form-control" placeholder="Description" type="text" formControlName="description">
+  <input class="form-control" type="text" placeholder="Name" formControlName="Nazwa">
+  <input class="form-control" placeholder="Destination" type="text" formControlName="Kierunek">
+  <input class="form-control" placeholder="Start date" type="text" formControlName="Początek">
+  <input class="form-control" placeholder="End date" type="text" formControlName="Koniec">
+  <input class="form-control" placeholder="Price" type="text" formControlName="Cena">
+  <input class="form-control" placeholder="Limit" type="text" formControlName="Limit miejsc">
+  <input class="form-control" placeholder="Description" type="text" formControlName="Opis">
   <input class="form-control" placeholder="Image" type="text" formControlName="imageSrc">
-  <button class="btn btn-primary" type="submit" [disabled]="!itemForm.valid">Add new trip</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!itemForm.valid">Dodaj nową wycieczkę</button>
 </form>

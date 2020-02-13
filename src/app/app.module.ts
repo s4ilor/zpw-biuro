@@ -1,15 +1,17 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import {Router, RouterModule} from '@angular/router';
+import {Router, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -24,6 +26,15 @@ import { OfferComponent } from './offer/offer.component';
 import { AboutComponent } from './about/about.component';
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
+import { MemoryData } from './auth/memory-data';
+import { ItemDestinationPipe } from './pipe/item-destination.pipe';
+import { ItemStartDatePipe } from './pipe/item-start-date.pipe';
+import { ItemEndDatePipe } from './pipe/item-end-date.pipe';
+import { ItemMinPricePipe } from './pipe/item-min-price.pipe';
+import { ItemMaxPricePipe } from './pipe/item-max-price.pipe';
+import { ItemMinRatingPipe } from './pipe/item-min-rating.pipe';
+import { NewItemComponent } from './new-item/new-item.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +51,16 @@ import { OrderItemComponent } from './order-item/order-item.component';
     OfferComponent,
     AboutComponent,
     OrderComponent,
-    OrderItemComponent
+    OrderItemComponent,
+    ItemDestinationPipe,
+    ItemDetailsComponent,
+    ItemStartDatePipe,
+    ItemEndDatePipe,
+    ItemMaxPricePipe,
+    ItemMinPricePipe,
+    ItemMinRatingPipe,
+    NewItemComponent,
+    ItemComponent
   ],
   imports: [
     RouterModule,
@@ -50,9 +70,12 @@ import { OrderItemComponent } from './order-item/order-item.component';
     NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(MemoryData, {dataEncapsulation: false}),
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

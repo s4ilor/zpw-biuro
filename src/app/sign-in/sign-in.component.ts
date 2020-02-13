@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css']
+  styleUrls: ['./sign-in.component.scss']
 })
 
 export class SignInComponent {
@@ -24,7 +24,7 @@ export class SignInComponent {
 
   signIn() {
     this.authService.login(this.loginCredentials)
-      .then(() => this.router.navigate(['home']))
+      .then(() => this.router.navigate(['/']))
       .catch(err => alert(err.message) );
   }
 

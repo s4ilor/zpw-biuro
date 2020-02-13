@@ -1,0 +1,29 @@
+<section id='items' class='items'>
+  <div class="container padding">
+    <div id="filters" class="row p-5">
+      <h2 class='text-center col-12' i18n>Znajdź swoją wymarzoną wycieczkę!</h2>
+      <input [(ngModel)]="destinationFilter" class="col-md-2 form-control" placeholder="Kierunek" type="text">
+      <input [(ngModel)]="startDateFilter" class="col-md-2 form-control" placeholder="Start date" type="date">
+      <input [(ngModel)]="endDateFilter" class="col-md-2 form-control" placeholder="End date" type="date">
+      <input [(ngModel)]="minPriceFilter" class="col-md-2 form-control" placeholder="Cena mininalna" type="number" min=0>
+      <input [(ngModel)]="maxPriceFilter" class="col-md-2 form-control" placeholder="Cena maksymalna" type="number" min=0>
+      <input [(ngModel)]="minRatingFilter" class="col-md-2 form-control" placeholder="Minimalna ocena" type="number" min=0 max=5>
+    </div>
+
+    <div class="row mb-4">
+      <div *ngFor="let item of (items | itemDestination: destinationFilter | itemStartDate: startDateFilter | itemEndDate: endDateFilter)" class="col-md-4 mb-3 mb-md-0 mt-4">
+        <app-item [item]="item" (removeItemEmitter)="removeItem($event)" [special]="isItemSpecial(item)"></app-item>
+      </div>
+      <button *ngIf="isAdmin() && !showForm" (click)="showForm=true;" type="button" class="now-ui-icons arrows-1_minimal-left btn btn-default btn-lg col-md-4 mb-3 mb-md-0 mt-4 py-5">
+        <span class="fa fa-plus text-primary" ></span>
+      </button>
+      <app-new-item [hidden]="!showForm" (addItemEmitter)="showForm=false; addItem($event)" class="col-md-4 mb-3 mb-md-0 mt-4"></app-new-item>
+    </div>
+  </div>
+</section>
+
+<a  *ngIf="!isAdmin()" [routerLink]="['basket']">
+  <div class="container alert alert-info text-center">
+    <strong [ngClass]="[countItemsInOrder() > 10 ? 'text-success' : 'text-danger' ]">Ilość elementów w koszyku: {{countItemsInOrder()}}.</strong>
+  </div>
+</a>

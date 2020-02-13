@@ -1,15 +1,15 @@
-<div class="card py-4 h-100" [ngClass]="{'bg-light': special, 'border-danger': howManyLeft()<=3 }">
+<div class="card py-4 h-100 padding-bottom" [ngClass]="{'bg-light': special, 'border-danger': howManyLeft()<=3 }">
   <div class="card-body text-center">
     <i class="fa fa-plane text-primary mb-2"></i>
     <h4 class="text-uppercase m-0">{{item.name}}</h4>
     <div class="small text-black-50">{{item.destination | uppercase}} {{item.price}}zł</div>
-    <div *ngIf="howManyLeft(); else noItemsLeftBlock" class="small text-black-50">{{howManyLeft()}} places left</div>
-    <ng-template #noItemsLeftBlock><div class="small text-black-50">No more places!</div></ng-template>
+    <div *ngIf="howManyLeft(); else noItemsLeftBlock" class="small text-black-50">{{howManyLeft()}} wolnych miejsc</div>
+    <ng-template #noItemsLeftBlock><div class="small text-black-50">BRAK MIEJSC!</div></ng-template>
     <hr class="my-4">
     <div class="row justify-content-center align-items-center">
-       <button *ngIf="!isAdmin()" (click)="removeItemFromShoppingCart()" type="button" [disabled]="howManyLeft()==item.limit" class="col-2 btn btn-outline-primary">-</button>
+       <button *ngIf="!isAdmin()" (click)="removeItemFromOrder()" type="button" [disabled]="howManyLeft()==item.limit" class="col-2 btn btn-outline-primary">-</button>
        <div class="col-3 col-md-4"><img class="img-thumbnail img-fluid rounded-circle" src="../../assets{{item.imageSrc}}" /></div>
-       <button *ngIf="!isAdmin()" (click)="addItemToShoppingCart()" type="button" [disabled]="!howManyLeft()" class="col-2 btn btn-outline-primary">+</button>
+       <button *ngIf="!isAdmin()" (click)="addItemToOrder()" type="button" [disabled]="!howManyLeft()" class="col-2 btn btn-outline-primary">+</button>
     </div>
   </div>
 

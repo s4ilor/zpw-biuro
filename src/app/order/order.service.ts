@@ -4,29 +4,29 @@ import { Item } from '../models/item';
 @Injectable({
   providedIn: 'root'
 })
-export class ShoppingCartService {
-  shoppingCart = [];
+export class OrderService {
+  order = [];
   constructor() { }
 
-  getItemsInShoppingCart(): Array<Item> {
-    return this.shoppingCart;
+  getItemsInOrder(): Array<Item> {
+    return this.order;
   }
 
-  addItemToShoppingCart(item: Item) {
-    this.shoppingCart.push(item);
+  addItemToOrder(item: Item) {
+    this.order.push(item);
   }
 
-  removeItemFromShoppingCart(item: Item) {
-    const index = this.shoppingCart.indexOf(item);
+  removeItemFromOrder(item: Item) {
+    const index = this.order.indexOf(item);
     if (index > -1) {
-      this.shoppingCart.splice(index, 1);
+      this.order.splice(index, 1);
     }
   }
-  countItemInShoppingCart(item: Item) {
-    return this.shoppingCart.filter(i => i === item).length;
+  countItemInOrder(item: Item) {
+    return this.order.filter(i => i === item).length;
   }
 
-  countItemsInShoppingCart(): number {
-   return this.shoppingCart.length;
+  countItemsInOrder(): number {
+   return this.order.length;
   }
 }

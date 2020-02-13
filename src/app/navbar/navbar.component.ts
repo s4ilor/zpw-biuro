@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +12,9 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  constructor(public location: Location, private element : ElementRef) {
+  constructor(public location: Location,
+              private element: ElementRef,
+              private auth: AuthService) {
     this.sidebarVisible = false;
   }
 
@@ -27,14 +31,14 @@ export class NavbarComponent implements OnInit {
     html.classList.add('nav-open');
 
     this.sidebarVisible = true;
-  };
+  }
   sidebarClose() {
     const html = document.getElementsByTagName('html')[0];
     // console.log(html);
     this.toggleButton.classList.remove('toggled');
     this.sidebarVisible = false;
     html.classList.remove('nav-open');
-  };
+  }
   sidebarToggle() {
     // const toggleButton = this.toggleButton;
     // const body = document.getElementsByTagName('body')[0];
@@ -43,8 +47,7 @@ export class NavbarComponent implements OnInit {
     } else {
       this.sidebarClose();
     }
-  };
-
+  }
   scrollToElementWithId(id: string) {
     const element = document.getElementById(id);
     if (element) {
@@ -52,14 +55,10 @@ export class NavbarComponent implements OnInit {
       window.scrollTo({top: y, behavior: 'smooth'});
     }
   }
-
-  isDocumentation() {
-    var titlee = this.location.prepareExternalUrl(this.location.path());
-    if( titlee === '/documentation' ) {
-      return true;
-    }
-    else {
-      return false;
-    }
+  getUser(): User {
+    return this.auth.getUser();
+  }
+  logout() {
+    this.auth.logout();
   }
 }

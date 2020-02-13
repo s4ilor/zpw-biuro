@@ -1,1 +1,18 @@
-<p> item details component works </p>
+<div *ngIf="item" id='item-details' class="container">
+  <div class="card-body text-center">
+    <i class="fa fa-plane text-primary mb-2"></i>
+    <h4 class="text-uppercase m-0">{{item.name}}</h4>
+    <div class="small text-black-50">{{item.destination | uppercase}} {{item.price}}zł</div>
+    <div class="medium text-black-50">Opis: {{item.description}}</div>
+    <div class="medium text-black-50">Start wycieczki: {{item.startDate  | date: 'yyyy-MM-dd'}}</div>
+    <div class="medium text-black-50">Koniec wycieczki: {{item.endDate  | date: 'yyyy-MM-dd'}}</div>
+    <div class="row">
+      <div class="border col-md-4 p-2"><img src="../../assets{{item.imageSrc}}" /></div>
+      <div class="border col-md-4 p-2"><img src="../../assets{{item.imageSrc}}" /></div>
+      <div class="border col-md-4 p-2"><img src="../../assets{{item.imageSrc}}" /></div>
+      <div class="border col-md-4 p-2"><img src="../../assets{{item.imageSrc}}" /></div>
+      <div class="border col-md-4 p-2"><img src="../../assets{{item.imageSrc}}" /></div>
+      <div class="border col-md-4 p-2"><img src="../../assets{{item.imageSrc}}" /></div>
+    </div>
+  </div>
+</div>

@@ -3,15 +3,15 @@ import { Observable, of } from 'rxjs';
 import { Item } from '../models/item';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItemService {
+export class ItemsService {
   private itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>;
-  private backendUrl = 'api/items';  // URL to web api
+  private backendUrl = 'zpw-biuro/items';  // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

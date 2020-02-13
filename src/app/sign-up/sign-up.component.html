@@ -1,14 +1,14 @@
 <div id="signup" class="wrapper">
 
 <div class="container padding">
-  <h2>Sign up</h2>
+  <h2>Rejestracja</h2>
   <input class="form-control form-control-width" placeholder="E-mail" [(ngModel)]="registerCredentials.email">
   <input class="form-control form-control-width" placeholder="Imię" [(ngModel)]="registerCredentials.firstname">
   <input class="form-control form-control-width" placeholder="Nazwisko" [(ngModel)]="registerCredentials.surname">
   <input class="form-control form-control-width" placeholder="Adres zamieszkania" [(ngModel)]="registerCredentials.address">
   <input class="form-control form-control-width" type="password" placeholder="Hasło" [(ngModel)]="registerCredentials.password">
   <input class="form-control form-control-width" type="password" placeholder="Potwierdzenie hasła" [(ngModel)]="registerCredentials.passwordConfirmation">
-  <button class="btn btn-primary" (click)="signUp()">Register</button>
+  <button class="btn btn-primary" (click)="signUp()">Zarejestruj</button>
   <h5>{{ registerInfo }}</h5>
   <a id="sign-up" class="text-center nav-link" routerLink="/signin">Jeśli posiadasz już konto - zaloguj się.</a>
 </div>
