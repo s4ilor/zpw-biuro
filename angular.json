@@ -28,7 +28,6 @@
               "src/assets/sass/now-ui-kit.scss",
               "src/assets/css/demo.css",
               "src/assets/css/now-ui-kit.css"
-
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -126,8 +125,13 @@
               "devServerTarget": "zpw-biuro:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "zpw-biuro"
 }
